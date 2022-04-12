@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from Booking.models import Tournamentregister
 from django.contrib import messages
 from django.views import View
+from Shopping.models.customer import Customer
 
 
 # Create your views here.
@@ -48,6 +49,7 @@ class Tregistration(View):
         return render(request, 'Tregistration.html')
 
     def get(self, request):
-        return render(request, 'Tregistration.html')
+        customer = Customer.get_all_customers();
+        return render(request, 'Tregistration.html', {'customer': customer})
 
 

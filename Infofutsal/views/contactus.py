@@ -2,12 +2,13 @@ from django.shortcuts import render
 from Infofutsal.models import Contact
 from django.contrib import messages
 from django.views import View
-
+from Shopping.models.customer import Customer
 
 
 class contactus(View):
     def get(self, request):
-        return render(request, 'contactus.html')
+        customer = Customer.get_all_customers();
+        return render(request, 'contactus.html', {'customer':customer})
 
     def post(self, request):
         contact = Contact()

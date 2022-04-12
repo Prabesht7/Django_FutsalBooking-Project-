@@ -4,15 +4,12 @@ from Shopping.models.customer import Customer
 
 
 class Booking(models.Model):
-
     fullname = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.PositiveIntegerField()
     address = models.CharField(max_length=100)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     time = models.TimeField()
     date = models.DateField()
-    booking_date = models.DateField(default=datetime.datetime.today)
     playing_hours = models.CharField(max_length=50)
     status = models.BooleanField(default=False)
 
@@ -45,4 +42,3 @@ class Booking(models.Model):
         if Booking.objects.filter(time=self.time):
             return True
             return False
-

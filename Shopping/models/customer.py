@@ -9,14 +9,17 @@ class Customer(models.Model):
     username = models.CharField(max_length=150, )
     email = models.EmailField(null=True)
     password = models.CharField(max_length=150, null=True)
+    avatar = models.ImageField(upload_to='static/UserProfile', null=True , blank=True)
+    address = models.CharField(max_length=150 , null=True , blank=True)
+    age = models.IntegerField(null=True , blank=True)
+
 
     def register(self):
         self.save()
 
-    def all_customer(request):
-        customer_list = Customer.objects.all()
-        return render(request, 'booked.html', {'customer_list': customer_list})
-
+    @staticmethod
+    def get_all_customers():
+        return Customer.objects.all()
 
     @staticmethod
     def get_customer_by_email(email):

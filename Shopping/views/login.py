@@ -8,8 +8,9 @@ class Login(View):
     return_url = None
 
     def get(self, request):
+        customer = Customer.get_all_customers();
         Login.return_url = request.GET.get('return_url')
-        return render(request, 'login.html')
+        return render(request, 'login.html' , {'customer': customer})
 
     def post(self, request):
         email = request.POST.get('email')
@@ -37,3 +38,5 @@ class Login(View):
 def logout(request):
     request.session.clear()
     return redirect('homepage')
+
+

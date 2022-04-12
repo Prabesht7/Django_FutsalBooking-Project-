@@ -13,8 +13,9 @@ class FutsalBooking(View):
     template_name = 'booking.html'
 
     def get(self, request):
+        customer = Customer.get_all_customers();
         print('you are: ', request.session.get('email'))
-        return render(request, "booking.html")
+        return render(request, "booking.html" , {'customer': customer})
 
     def post(self, request, ):
         postData = request.POST
@@ -88,6 +89,7 @@ class FutsalBooking(View):
 
 def all_booking(request):
     booking_list = Booking.objects.all()
+
     return render(request, 'booked.html', {'booking_list': booking_list})
 
 

@@ -58,8 +58,8 @@
           </li>
           
           <li>
-            <a href="http://127.0.0.1:8000/contactus"
-              ><i class="fa fa-fw fa-info"></i> ContactUs</a
+            <a href="http://127.0.0.1:8000/aboutus"
+              ><i class="fa fa-fw fa-info"></i> About Us</a
             >
           </li>
           {% if request.session.customer %}
@@ -69,12 +69,14 @@
             >
           </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" style="color: white;" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i>
+          <a class="nav-link dropdown-toggle" href="http://127.0.0.1:8000/userprofile" style="color: white;" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i>
             Profile
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" style="background-color: transparent; border-color: transparent;"  aria-labelledby="navbarDarkDropdownMenuLink" >
-            <li><a class="dropdown-item" style="color: white;" href="http://127.0.0.1:8000/profile"><i class="fas fa-user-cog"></i> {{user.username}}</a></li>
-            <li><a class="dropdown-item" style="color: white;" href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            {% for customer in customer %}
+            <li><a class="dropdown-item" style="color: white;" href="http://127.0.0.1:8000/userprofile"><i class="fas fa-user-cog"></i>&nbsp;&nbsp;&nbsp;{{customer.first_name}}</a></li>
+            {% endfor %}
+            <li><a class="dropdown-item" style="color: white;" href="/logout"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;&nbsp;Logout</a></li>
           </ul>
         </li>
       </ul>

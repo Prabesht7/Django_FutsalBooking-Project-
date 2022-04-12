@@ -6,7 +6,8 @@ from django.views import View
 
 class Signup(View):
     def get(self, request):
-        return render(request, 'signup.html')
+        customer = Customer.get_all_customers();
+        return render(request, 'signup.html', {'customer': customer})
 
     def post(self, request):
         postData = request.POST
@@ -42,7 +43,7 @@ class Signup(View):
                 'error': error_message,
                 'values': value
             }
-        return render(request, 'login.html', data)
+        return render(request, 'signup.html', data)
 
     def validateCustomer(self, customer):
         error_message = None

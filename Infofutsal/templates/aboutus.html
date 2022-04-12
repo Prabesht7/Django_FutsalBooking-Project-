@@ -216,48 +216,15 @@
 <!-- Review section starts  -->
 
 <section class="review" id="review">
+  
   <h1 class="heading">Player's  <span style="color: #e0623c;">Review</span></h1>
-
+  <div class="row mx-auto">
+  {% for review in review %}
+  <div class="col">
   <div class="box-container">
     <div class="box">
       <img src="/static/images/aswinreview.png" alt="" />
-      <h3 style="color: #e0623c;">Aswin Thapa</h3>
-      <div class="stars">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half-alt"></i>
-      </div>
-      <p class="text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-        sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero
-        nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis
-        consequuntur optio dolorem!
-      </p>
-    </div>
-
-    <div class="box">
-      <img src="/static/images/babinreview.png" alt="" />
-      <h3 style="color: #e0623c;">Babin Budathoki</h3>
-      <div class="stars">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half-alt"></i>
-      </div>
-      <p class="text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-        sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero
-        nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis
-        consequuntur optio dolorem!
-      </p>
-    </div>
-
-    <div class="box">
-      <img src="/static/images/basantareview.png" alt="" />
-      <h3 style="color: #e0623c;">Basanta Nagarkoti</h3>
+      <h3 style="color: #e0623c;">{{review.fullname}}</h3>
       <div class="stars">
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
@@ -273,6 +240,9 @@
       </p>
     </div>
   </div>
+  </div>
+</div>
+  {% endfor %}
 </section>
 <h1 class="heading">Futsal  <span style="color: #e0623c;">Location</span></h1>
 <p style="text-align: center; font-weight: 500;font-size: 15px;">Note: Please use Encore Gaming Cafe location as our futsal location is opposite to the Cafe.</p>
