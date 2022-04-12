@@ -49,3 +49,7 @@ class Customer(models.Model):
         if Customer.objects.filter(phone=self.phone):
             return True
             return False
+
+    @staticmethod
+    def get_customers_by_customer(customer_id):
+        return Customer.objects.filter(customer=customer_id)

@@ -8,9 +8,10 @@ from Shopping.forms import updateprofile
 
 class Userprofile(View):
     def get(self, request):
-        customer = Customer.get_all_customers();
-        print(customer)
-        return render(request, 'userprofile.html', {'customer': customer})
+        customer = request.session.get('customer')
+        customer_list = Customer.get_customers_by_customer(customer)
+        print(customer_list)
+        return render(request, 'userprofile.html', {'customer_list': customer_list})
 
 
 def update_profile(request, customer_id):
@@ -22,3 +23,11 @@ def update_profile(request, customer_id):
     customer = Customer.objects.get(pk=customer_id)
     form = updateprofile(request.POST or None, instance=customer)
     return render(request, 'updateprofile.html', {'customer': customer, 'form': form})
+
+
+
+"""class Userprofile(View):
+    def get(self, request):
+        customer = Customer.get_all_customers();
+        print(customer)
+        return render(request, 'userprofile.html', {'customer': customer})"""

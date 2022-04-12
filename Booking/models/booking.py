@@ -8,6 +8,7 @@ class Booking(models.Model):
     email = models.EmailField()
     phone = models.PositiveIntegerField()
     address = models.CharField(max_length=100)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, default=True, blank=True)
     time = models.TimeField()
     date = models.DateField()
     playing_hours = models.CharField(max_length=50)
@@ -42,3 +43,7 @@ class Booking(models.Model):
         if Booking.objects.filter(time=self.time):
             return True
             return False
+
+    @staticmethod
+    def get_bookings_by_customer(customer_id):
+        return Booking.objects.filter(customer=customer_id)

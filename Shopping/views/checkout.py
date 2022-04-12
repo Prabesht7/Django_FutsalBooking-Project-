@@ -51,12 +51,12 @@ class CheckOut(View):
 def sendordermail(request):
     send_mail(
         'New Order have been placed.',
-        'This mail is to inform you that new orders have been placed by a customer',
+        'This mail is to inform you that new orders have been placed by a customer. Please check your admin dashboard and confirm all orders.',
         'Brihaspatifutsal2018@gmail.com',
         ['numb1prabesht7@gmail.com'],
         fail_silently=False,
     )
-    return redirect('bookings')
+    return redirect('orders')
 
 
 def orders_pdf(request):
