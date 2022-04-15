@@ -5,6 +5,7 @@ from .models.customer import Customer
 from .models.orders import Order
 
 
+
 class AdminProduct(admin.ModelAdmin):
     list_display = ['name', 'price', 'category', 'description']
 
@@ -21,8 +22,12 @@ class AdminOrder(admin.ModelAdmin):
     list_display = ['fullname', 'phone']
 
 
+
+
+
 # Register your models here.
 admin.site.register(Product, AdminProduct)
 admin.site.register(Category, AdminCategory)
 admin.site.register(Customer, AdminCustomer)
 admin.site.register(Order, AdminOrder)
+

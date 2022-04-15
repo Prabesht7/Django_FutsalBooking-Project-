@@ -1,33 +1,54 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from Shopping.models.customer import Customer
-from Shopping.forms import UserUpdateForm
-from django.contrib import messages
-from Shopping.forms import updateprofile
+from Shopping.forms import updateprofile, updatecustomer
+from Shopping.models.profile import Profile
 
 
 class Userprofile(View):
     def get(self, request):
         customer = request.session.get('customer')
-        customer_list = Customer.get_customers_by_customer(customer)
-        print(customer_list)
-        return render(request, 'userprofile.html', {'customer_list': customer_list})
-
-
-def update_profile(request, customer_id):
-    customer = Customer.objects.get(pk=customer_id)
-    form = updateprofile(request.POST or None, instance=customer)
-    if form.is_valid():
-        form.save()
-        return redirect('userprofile')
-    customer = Customer.objects.get(pk=customer_id)
-    form = updateprofile(request.POST or None, instance=customer)
-    return render(request, 'updateprofile.html', {'customer': customer, 'form': form})
+        all_customer = Customer.get_all_customers();
+        return render(request, 'userprofile.html', {'all_customer': all_customer})
 
 
 
-"""class Userprofile(View):
+def update_profile(request, id):
+    if request.method == 'POST':
+        pi = Customer.objects.get(pk=id)
+        fm = updatecustomer(request.POST, request.FILES, instance=pi)
+        if fm.is_valid():
+            fm.save()
+            return redirect('userprofile')
+        else:
+            pi = Customer.objects.get(pk=id)
+            fm = updatecustomer(instance=pi)
+    else:
+        pi = Customer.objects.get(pk=id)
+        fm = updatecustomer(instance=pi)
+    return render(request, 'updateprofile.html', {'form': fm})
+
+
+
+
+
+
+
+
+"""
+class Userprofile(View):
     def get(self, request):
-        customer = Customer.get_all_customers();
-        print(customer)
-        return render(request, 'userprofile.html', {'customer': customer})"""
+        customer = request.session.get('customer')
+        profile = Profile.get_profile_by_customer(customer)
+        all_customer = Customer.get_all_customers();
+        print(profile)
+        return render(request, 'userprofile.html', {'profile': profile, 'all_customer': all_customer})
+"""
+
+
+
+
+
+
+
+

@@ -2,29 +2,25 @@ from django import forms
 from django.forms import ModelForm
 from Booking.models.booking import Booking
 from Shopping.models.customer import Customer
+from Shopping.models.profile import Profile
 from django import forms
 from django.contrib.auth.models import User
 
 
-class UserUpdateForm(forms.ModelForm):
+class updatecustomer(forms.ModelForm):
     class Meta:
         model = Customer
-        fields = ['first_name', 'last_name', 'username', 'phone', 'address', 'age', 'email', 'avatar']
+        fields = ['first_name', 'last_name', 'username', 'phone', 'email', 'images', 'age', 'address']
 
 
 class updateprofile(ModelForm):
     class Meta:
-        model = Customer
-        fields = ('first_name', 'last_name', 'username', 'phone', 'address', 'age', 'email', 'avatar')
+        model = Profile
+        fields = ('address', 'age', 'images')
         lables = {
-            'first_name': '',
-            'last_name': '',
-            'username': '',
-            'phone': '',
             'address': '',
             'age': '',
-            'email': '',
-            'avatar': '',
+            'images': '',
         }
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'FullName'}),

@@ -1,6 +1,4 @@
 {% extends 'base.html' %} {% block content %} {% load static%}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -85,79 +83,15 @@
 }
       </style>
     </section>
-
-
-  <!-- <div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Check Out Form</h5>
-        <hr />
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <div class="m-2 p-3">
-          <form action="" method="POST">
-            {% csrf_token %}
-               <div class="form-group">
-              <label for="">Full Name</label>
-              <input
-                type="text"
-                name="full_name"
-                id=""
-                class="form-control"
-                placeholder=""
-                aria-describedby="helpId"
-              />
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="">Phone Number</label>
-              <input
-                type="number"
-                name="phone"
-                id=""
-                class="form-control"
-                placeholder=""
-                aria-describedby="helpId"
-              />
-            </div>
-            <br />
-            <div class="form-group">
-              <label for="">Email</label>
-              <input
-                type="email"
-                name="email"
-                id=""
-                class="form-control"
-                placeholder=""
-                aria-describedby="helpId"
-              />
-            </div>
-            <br />
-              <input
-                type="submit"
-                class="btn float-right btn-outline-info col-lg-3"
-                value="Register"
-            />
-          </form>
         </div>
       </div>
-    </div> -->
-         
-        </div>
-      </div>
-
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+</style>
   {% endblock %}
 </html>

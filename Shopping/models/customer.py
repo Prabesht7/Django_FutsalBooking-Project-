@@ -9,10 +9,10 @@ class Customer(models.Model):
     username = models.CharField(max_length=150, )
     email = models.EmailField(null=True)
     password = models.CharField(max_length=150, null=True)
-    avatar = models.ImageField(upload_to='static/UserProfile', null=True , blank=True)
-    address = models.CharField(max_length=150 , null=True , blank=True)
-    age = models.IntegerField(null=True , blank=True)
-
+    address = models.CharField(max_length=150, null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
+    images = models.ImageField(default='static/UserProfile/user.png', upload_to='static/UserProfile', blank=True,
+                               null=True)
 
     def register(self):
         self.save()
@@ -52,4 +52,4 @@ class Customer(models.Model):
 
     @staticmethod
     def get_customers_by_customer(customer_id):
-        return Customer.objects.filter(customer=customer_id)
+        return Customer.objects.get(customer=customer_id)
