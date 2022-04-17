@@ -13,6 +13,7 @@ class Booking(models.Model):
     date = models.DateField()
     playing_hours = models.CharField(max_length=50)
     status = models.BooleanField(default=False)
+    booked_at = models.DateField(auto_now_add=True, blank=True, null=True)
 
     @staticmethod
     def get_booking_by_customer(customer_id):
