@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import render
+import datetime
 
 
 class Customer(models.Model):
@@ -13,9 +14,13 @@ class Customer(models.Model):
     age = models.IntegerField(null=True, blank=True)
     images = models.ImageField(default='static/UserProfile/user.png', upload_to='static/UserProfile', blank=True,
                                null=True)
+    created_at = models.DateField(auto_now_add=True, blank=True, null=True)
 
     def register(self):
         self.save()
+ 
+    def __str__(self):
+        return self.first_name+self.last_name
 
     @staticmethod
     def get_all_customers():
