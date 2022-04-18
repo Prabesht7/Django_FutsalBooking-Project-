@@ -15,6 +15,7 @@ class Booking(models.Model):
     status = models.BooleanField(default=False)
     booked_at = models.DateField(auto_now_add=True, blank=True, null=True)
 
+
     @staticmethod
     def get_booking_by_customer(customer_id):
         return Booking.objects.filter(customer=customer_id).booking_by('-date')
