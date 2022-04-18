@@ -8,7 +8,6 @@ from .views.checkout import CheckOut, orders_pdf
 from .views.orders import OrderView
 from Shopping.middlewares.auth import auth_middleware
 from .views.profile import Userprofile, update_profile
-from .views.charts import charts
 from .views.orders import KhaltiVerifyView, KhaltiRequestView , verify_payment
 
 urlpatterns = [
@@ -21,10 +20,8 @@ urlpatterns = [
     path('orders', auth_middleware(OrderView.as_view()), name='orders'),
     path('userprofile', auth_middleware(Userprofile.as_view()), name='userprofile'),
     path('update_profile/<int:id>', update_profile, name='update_profile'),
-    path('orders_pdf', orders_pdf, name='orders_pdf'),
-    path('charts', charts, name='charts'),
+    path('orders_pdf', auth_middleware(orders_pdf), name='orders_pdf'),
     path("khalti-request/", KhaltiRequestView.as_view(), name="khaltirequest"),
     path("khalti-verify/", KhaltiVerifyView.as_view(), name="khaltiverify"),
     path('api/verify_payment',verify_payment,name='verify_payment')
-
 ]

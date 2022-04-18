@@ -5,6 +5,7 @@ from .views.booking import Booking, FutsalBooking, add_booking, delete_booking, 
 from .views.futsalbooking import futsalbooking
 from Shopping.middlewares.auth import auth_middleware
 from .views.all_bookings import all_booking
+from .views.report import showreport
 
 urlpatterns = [
     path('Tregistration', auth_middleware(Tregistration.as_view()), name='Tregistration'),
@@ -15,4 +16,5 @@ urlpatterns = [
     path('delete_booking/<int:id>', delete_booking, name='delete-booking'),
     path('futsal_booking', auth_middleware(futsalbooking.as_view()), name='futsal-booking'),
     path('sendmail', sendfutsalmail, name='send-mail'),
+    path('report', auth_middleware(showreport), name='report')
 ]
