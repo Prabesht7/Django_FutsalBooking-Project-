@@ -1,6 +1,4 @@
 from django.db import models
-from django.shortcuts import render
-import datetime
 
 
 class Customer(models.Model):
@@ -18,9 +16,9 @@ class Customer(models.Model):
 
     def register(self):
         self.save()
- 
+
     def __str__(self):
-        return self.first_name+self.last_name
+        return self.first_name + self.last_name
 
     @staticmethod
     def get_all_customers():
