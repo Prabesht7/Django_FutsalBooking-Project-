@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'Booking',
     'Infofutsal',
     'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -125,8 +127,6 @@ EMAIL_HOST_USER = 'Brihaspatifutsal2018@gmail.com'
 EMAIL_HOST_PASSWORD = 'smartfutsal123'
 EMAIL_USE_TLS = True
 
-
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
@@ -135,3 +135,17 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Brihaspati Futsal",
+
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to the Brihaspati Futsal",
+
+    # Copyright on the footer
+    "copyright": "Brihaspati Futsal",
+    "site_logo": "testhai.png",
+    "site_logo_classes": "img-circle",
+    "site_icon": "futsallogofortitle.png",
+}
